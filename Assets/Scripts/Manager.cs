@@ -31,7 +31,7 @@ public class Manager : MonoBehaviour
         List<GameObject> cubes = new List<GameObject>();
         GameObject cube;
         string rdm_color = block_colors[Random.Range(0, block_colors.Count)];
-        float y = -3.775f;
+        float y = -2.775f;
         // x 2.25
         // loop 10 times to create 10 rows
         for (float i = -2; i <= 2; i+=0.5f){
@@ -42,6 +42,7 @@ public class Manager : MonoBehaviour
                 powerup.transform.parent = cubeList.transform;
                 powerup.GetComponent<Pow>().pv = level;
                 powerup.GetComponent<Pow>().setText();
+                powerup.GetComponent<Pow>().setColor(rdm_color);
             } else {
                 cube = Instantiate(block, new Vector3(i, y, 0), Quaternion.identity);
                 cube.transform.parent = cubeList.transform;
@@ -65,11 +66,11 @@ public class Manager : MonoBehaviour
     void Awake()
     {
         block_colors.Add("#fffff");
-        // block_colors.Add("#f9584b");
-        // block_colors.Add("#ffd12b");
-        // block_colors.Add("#b7dffd");
-        // block_colors.Add("#80e8e0");
-        // block_colors.Add("#3eb489");
+        block_colors.Add("#f9584b");
+        block_colors.Add("#ffd12b");
+        block_colors.Add("#b7dffd");
+        block_colors.Add("#80e8e0");
+        block_colors.Add("#3eb489");
         // create a parent for all the cubes
         cubeList = new GameObject("CubeList");
         upLevel();

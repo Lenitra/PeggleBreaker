@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4572649797472435769}
   - component: {fileID: 8916984865537768280}
   m_Layer: 0
-  m_Name: PowHorizontal
+  m_Name: PowVertical 1
   m_TagString: Pow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   pv: 0
   text: {fileID: 7722310830438445337}
   effectObject: {fileID: 3154018771099702981}
-  id: 2
+  id: 4
 --- !u!1 &2534186536999434273
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,14 +313,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3154018771099702981}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2301978103508160755}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!120 &1242164299982969029
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -363,8 +363,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 10, y: 0, z: 0}
-  - {x: -10, y: 0, z: 1}
+  - {x: 20, y: 0, z: 0}
+  - {x: -20, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -545,14 +545,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8060297433431241331}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2301978103508160755}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &2618223957921263063
 SpriteRenderer:
   m_ObjectHideFlags: 0
