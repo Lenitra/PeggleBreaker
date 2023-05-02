@@ -6,7 +6,6 @@ public class Chaudron : MonoBehaviour
 {
     bool toRight = true;
     public float speed = 0.75f;
-
     // Update is called once per frame
     void Update()
     {
