@@ -23,6 +23,9 @@ public class Pow : MonoBehaviour
 
 
     public void setText(){
+        if (pv <= 0){
+            pv = 0;
+        }
         text.text = pv.ToString();
     }
 
@@ -45,7 +48,7 @@ public class Pow : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         setText();
-        if (other.gameObject.tag == "bullet"){
+        if (other.gameObject.tag == "bullet" && pv > 0){
             if (id == 1){
                 TakeDamage(1);
                 if (other.GetComponent<Bullet>().cloned == false){

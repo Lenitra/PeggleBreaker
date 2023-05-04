@@ -16,6 +16,16 @@ public class Manager : MonoBehaviour
     private List<string> block_colors = new List<string>();
 
 
+    public int getHigh(){
+        return PlayerPrefs.GetInt("highscore");
+    }
+
+    public void setHigh(int levelmax){
+        if (levelmax > getHigh()){
+            PlayerPrefs.SetInt("highscore", level);
+        }
+    }
+
     public void setLevelText(){
         txtLevel.text = "Lvl " + level.ToString();
     }
@@ -40,6 +50,7 @@ public class Manager : MonoBehaviour
 
     // Check si la partie est finie et restart
     public void isOver(){
+        setHigh(level);
         bool isOver = false;
         foreach (Transform child in cubeList.transform)
         {
@@ -78,13 +89,13 @@ public class Manager : MonoBehaviour
                 // create a powerup
                 GameObject powerup = Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(i, y, 0), Quaternion.identity);
                 powerup.transform.parent = cubeList.transform;
-                powerup.GetComponent<Pow>().pv = level*2;
+                powerup.GetComponent<Pow>().pv = level;
                 powerup.GetComponent<Pow>().setText();
                 powerup.GetComponent<Pow>().setColor(rdm_color);
             } else {
                 cube = Instantiate(block, new Vector3(i, y, 0), Quaternion.identity);
                 cube.transform.parent = cubeList.transform;
-                cube.GetComponent<Block>().pv = level;
+                cube.GetComponent<Block>().pv = level*2;
                 cube.GetComponent<Block>().setText();
                 cube.GetComponent<Block>().setColor(rdm_color);
                 // add cube to the list cubes
