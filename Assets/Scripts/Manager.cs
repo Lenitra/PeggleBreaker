@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Manager : MonoBehaviour
 {
@@ -8,35 +9,72 @@ public class Manager : MonoBehaviour
     public GameObject block; // prefab du cube
     public GameObject[] powerups; // liste des powerups
 
+    // UI
+    public TextMeshProUGUI txtLevel; // text du level
 
     private GameObject cubeList; // parent de tout les cubes
     private List<string> block_colors = new List<string>();
 
 
+    public void setLevelText(){
+        txtLevel.text = "Lvl " + level.ToString();
+    }
 
-    public void upLevel(){
-        // loop into childrens of the parent cubeList
+
+    public void startGame(){
+        // destroy all the cubes
         foreach (Transform child in cubeList.transform)
         {
-            // move to up child
-            child.position += new Vector3(0, 0.5f, 0);
+            Destroy(child.gameObject);
+        }
+        // loop 3 times to create 3 rows
+        for (level = 1; level <= 3; level++){
+            // create a list of cubes
+            createRow();
+        }
+        level--;
+        
+        setLevelText();
+    }
+
+
+    // Check si la partie est finie et restart
+    public void isOver(){
+        bool isOver = false;
+        foreach (Transform child in cubeList.transform)
+        {
             if (child.position.y > 2.725f){
                 // if the child is above the screen, destroy it
-                Destroy(child.gameObject);
+                if (child.gameObject.tag == "block"){
+                    isOver = true;
+                } else {
+                    Destroy(child.gameObject);
+                }
             }
         }
+        if (isOver){
+            startGame();
+        }
+    }
 
-        level++;
-        // create a list of cubes
+
+    // Génère une ligne de cubes avec des powerups aléatoires
+    // La valeur des cubes est définie par la variable level
+    public void createRow(){
+
+        // Fait monter tout les cubes d'une ligne
+        foreach (Transform child in cubeList.transform){
+            child.position += new Vector3(0, 0.5f, 0);
+        }
+
         List<GameObject> cubes = new List<GameObject>();
         GameObject cube;
         string rdm_color = block_colors[Random.Range(0, block_colors.Count)];
         float y = -2.775f;
-        // x 2.25
-        // loop 10 times to create 10 rows
+        // loop 10 times to create 10 blocks
         for (float i = -2; i <= 2; i+=0.5f){
             // if 10% of chance
-            if (Random.Range(0, 100) < 10){
+            if (Random.Range(0, 100) < 5){
                 // create a powerup
                 GameObject powerup = Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(i, y, 0), Quaternion.identity);
                 powerup.transform.parent = cubeList.transform;
@@ -54,14 +92,20 @@ public class Manager : MonoBehaviour
             }
         }
         // destroy on random cube from the list
-        // get the length of the list
-        // get a random number between 1 and 4 included
-        int rdm = Random.Range(1, 2);
+        int rdm = Random.Range(0, 2);
         for (int i = 0; i < rdm; i++){
             Destroy(cubes[Random.Range(0, cubes.Count-1)]);
-        } 
-        
+        }
     }
+
+
+    public void upLevel(){
+        level++;
+        createRow();
+        setLevelText();
+        isOver();
+    }
+
 
     void Awake()
     {
@@ -73,9 +117,8 @@ public class Manager : MonoBehaviour
         block_colors.Add("#3eb489");
         // create a parent for all the cubes
         cubeList = new GameObject("CubeList");
-        upLevel();
-        upLevel();
-        upLevel();
+        txtLevel = GameObject.Find("LevelTXT").GetComponent<TextMeshProUGUI>();
+        startGame();
     }
 
 

@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         // if the ball is static for 3 seconds, destroy it
-        if (rb.velocity.magnitude < 0.01f){
+        if (rb.velocity.magnitude < 0.05f){
             if (staticTime > 0){
                 staticTime -= Time.deltaTime;
             } else {
@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
         if (rb != null){
             // if the object has the tad "Chaudron"
             if (collision.gameObject.tag == "Chaudron"){
-                player.addBullet(2);
+                player.addBullet(1);
                 Destroy(gameObject);
                 return;
             }

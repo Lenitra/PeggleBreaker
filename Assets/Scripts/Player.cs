@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -17,12 +18,12 @@ public class Player : MonoBehaviour
     private bool rotateToRight = true;
     private float maxRotation = 50;
 
+    // particle effect
+    public GameObject shootParticle;
+
+
     private int beforeLevel = 2;
-
-    private bool autoShoot = false;
-    private float tmpShoot = 0;
-    public float autoShootSpeed = 0.5f;
-
+    private CamEffect camEffect;
     private Transform cannon;
 
     // Start is called before the first frame update
@@ -30,6 +31,8 @@ public class Player : MonoBehaviour
         Manager = GameObject.Find("Manager").GetComponent<Manager>();
         setUI();
         cannon = transform.Find("cannon");
+        camEffect = GameObject.Find("Main Camera").GetComponent<CamEffect>();
+        shootParticle.SetActive(false);
     }
 
     public void addBullet(int i = 1){
@@ -37,9 +40,6 @@ public class Player : MonoBehaviour
         setUI();
     }
 
-    public void setAutoUI(){
-        autoShoot = !autoShoot;
-    }
 
     public void setUI(){
         uiBallCount.text = bulletCount.ToString();
@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
     void shoot(){
         if (bulletCount > 0)
             {
+
                 Vector3 bulletPosition = transform.position;
                 // make the bullet spawn a bit in front of the player
                 // calculate the direction of the player and add it to the position
@@ -73,36 +74,30 @@ public class Player : MonoBehaviour
 
     IEnumerator cannon_shoot_effect(){
 
+        camEffect.Shake();
+        shootParticle.SetActive(true);
+        shootParticle.GetComponent<ParticleSystem>().Play();
+
         // loop 4 times 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 8; i++)
         {
-            cannon.localPosition += new Vector3(0, 0.075f, 0);
-            yield return new WaitForSeconds(0.01f);
+            cannon.localPosition += new Vector3(0, 0.0375f, 0);
+            yield return new WaitForSeconds(0.005f);
         }
         // loop 4 times 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 8; i++)
         {
-            cannon.localPosition -= new Vector3(0, 0.075f, 0);
-            yield return new WaitForSeconds(0.05f);
+            cannon.localPosition -= new Vector3(0, 0.0375f, 0);
+            yield return new WaitForSeconds(0.025f);
         }
+
+
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        // auto shoot
-        if (autoShoot)
-        {
-            tmpShoot -= Time.deltaTime;
-            if (tmpShoot <= 0)
-            {
-                shoot();
-                tmpShoot = autoShootSpeed;
-            }
-        }
-
-
 
         // rotate the player continuously around the z axis
         if (rotateToRight)
@@ -154,6 +149,11 @@ public class Player : MonoBehaviour
             Manager.upLevel();
         }
         
+        // on press return andoid
+        if (Input.GetKeyDown(KeyCode.Menu))
+        {
+            SceneManager.LoadScene("home");
+        }
         
     }
 }
