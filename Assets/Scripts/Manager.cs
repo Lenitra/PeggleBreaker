@@ -78,7 +78,7 @@ public class Manager : MonoBehaviour
                 // create a powerup
                 GameObject powerup = Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(i, y, 0), Quaternion.identity);
                 powerup.transform.parent = cubeList.transform;
-                powerup.GetComponent<Pow>().pv = level;
+                powerup.GetComponent<Pow>().pv = level*2;
                 powerup.GetComponent<Pow>().setText();
                 powerup.GetComponent<Pow>().setColor(rdm_color);
             } else {
