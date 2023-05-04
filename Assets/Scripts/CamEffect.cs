@@ -14,7 +14,7 @@ public class CamEffect : MonoBehaviour
 
     IEnumerator DoShake()
     {
-        Vector3 originalPos = transform.localPosition;
+        Vector3 originalPos = new Vector3(0, 0, -10);
         float elapsed = 0.0f;
 
         while (elapsed < duration)

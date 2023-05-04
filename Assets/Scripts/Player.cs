@@ -79,16 +79,16 @@ public class Player : MonoBehaviour
         shootParticle.GetComponent<ParticleSystem>().Play();
 
         // loop 4 times 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 4; i++)
         {
-            cannon.localPosition += new Vector3(0, 0.0375f, 0);
-            yield return new WaitForSeconds(0.005f);
+            cannon.localPosition += new Vector3(0, 0.075f, 0);
+            yield return new WaitForSeconds(0.0025f);
         }
         // loop 4 times 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 4; i++)
         {
-            cannon.localPosition -= new Vector3(0, 0.0375f, 0);
-            yield return new WaitForSeconds(0.025f);
+            cannon.localPosition -= new Vector3(0, 0.075f, 0);
+            yield return new WaitForSeconds(0.01f);
         }
 
 

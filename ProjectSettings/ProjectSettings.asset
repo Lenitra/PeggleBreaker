@@ -135,7 +135,9 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -4428327981692019530, guid: c27d8b0f67b63024b8a497190bff5b95, type: 2}
+  - {fileID: 11400000, guid: 8e9d40eeae92e044294e705e98cb5254, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -259,7 +261,7 @@ PlayerSettings:
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
-  androidEnableBanner: 1
+  androidEnableBanner: 0
   androidUseLowAccuracyLocation: 0
   androidUseCustomKeystore: 1
   m_AndroidBanners:
@@ -433,6 +435,7 @@ PlayerSettings:
   openGLRequireES32: 0
   m_TemplateCustomTags: {}
   mobileMTRendering:
+    Android: 1
     iPhone: 1
     tvOS: 1
   m_BuildTargetGroupLightmapEncodingQuality:
@@ -798,9 +801,14 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     Build: 0
+    Collab: 0
     ErrorHub: 0
+    Game Performance: 0
     Hub: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 0
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -815,11 +823,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 0ffd1cc2-4423-4b82-8a4c-d017dfabae3d
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: peggle
+  organizationId: lenitramc
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   playerDataPath: 

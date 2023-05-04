@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
                 return;
             }
 
-            if (collision.gameObject.tag == "PowDouble"){
+            if (collision.gameObject.tag == "Pow"){
                 return;
             }
 
