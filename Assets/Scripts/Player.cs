@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
         }
         
         // on press return andoid
-        if (Input.GetKeyDown(KeyCode.Menu))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("home");
         }
