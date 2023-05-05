@@ -11,6 +11,7 @@ public class Manager : MonoBehaviour
 
     // UI
     public TextMeshProUGUI txtLevel; // text du level
+    public TextMeshProUGUI txtHighscore; // text du highscore
 
     private GameObject cubeList; // parent de tout les cubes
     private List<string> block_colors = new List<string>();
@@ -32,6 +33,7 @@ public class Manager : MonoBehaviour
 
 
     public void startGame(){
+        txtHighscore.text = "Best score \n" + getHigh().ToString();
         // destroy all the cubes
         foreach (Transform child in cubeList.transform)
         {
@@ -129,6 +131,7 @@ public class Manager : MonoBehaviour
         // create a parent for all the cubes
         cubeList = new GameObject("CubeList");
         txtLevel = GameObject.Find("LevelTXT").GetComponent<TextMeshProUGUI>();
+        txtHighscore = GameObject.Find("HighscoreTXT").GetComponent<TextMeshProUGUI>();
         startGame();
     }
 
