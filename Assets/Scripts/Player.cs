@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using RDG;
 
 public class Player : MonoBehaviour
 {
-    public int bulletCount = 5;
+    public int bulletCount;
     public float speed = 0.1f;
     public GameObject bullet;
 
@@ -46,8 +47,7 @@ public class Player : MonoBehaviour
     }
 
     void shoot(){
-        if (bulletCount > 0)
-            {
+        if (bulletCount > 0 && Time.timeScale != 0){
 
                 Vector3 bulletPosition = transform.position;
                 // make the bullet spawn a bit in front of the player
@@ -73,6 +73,10 @@ public class Player : MonoBehaviour
 
 
     IEnumerator cannon_shoot_effect(){
+
+        if (PlayerPrefs.GetInt("vibration") == 1){
+            Vibration.Vibrate(100, 50);
+        }
 
         camEffect.Shake();
         shootParticle.SetActive(true);

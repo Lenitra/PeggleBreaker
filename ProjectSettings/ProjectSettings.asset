@@ -23,7 +23,7 @@ PlayerSettings:
   m_SplashScreenAnimation: 1
   m_SplashScreenLogoStyle: 1
   m_SplashScreenDrawMode: 0
-  m_SplashScreenBackgroundAnimationZoom: 1
+  m_SplashScreenBackgroundAnimationZoom: 0
   m_SplashScreenLogoAnimationZoom: 1
   m_SplashScreenBackgroundLandscapeAspect: 1
   m_SplashScreenBackgroundPortraitAspect: 1
@@ -39,7 +39,9 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
+  m_SplashScreenLogos:
+  - logo: {fileID: 21300000, guid: 6e0248ef53844e74ba4fc6f2549a4ef0, type: 3}
+    duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -135,7 +137,9 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -4428327981692019530, guid: c27d8b0f67b63024b8a497190bff5b95, type: 2}
+  - {fileID: 11400000, guid: 8e9d40eeae92e044294e705e98cb5254, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -284,7 +288,9 @@ PlayerSettings:
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 6e0248ef53844e74ba4fc6f2549a4ef0, type: 3}
+      - {fileID: 2800000, guid: 6e0248ef53844e74ba4fc6f2549a4ef0, type: 3}
       m_Width: 432
       m_Height: 432
       m_Kind: 2
@@ -314,7 +320,8 @@ PlayerSettings:
       m_Height: 81
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 6e0248ef53844e74ba4fc6f2549a4ef0, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 1
@@ -344,7 +351,8 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 2800000, guid: 6e0248ef53844e74ba4fc6f2549a4ef0, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 0

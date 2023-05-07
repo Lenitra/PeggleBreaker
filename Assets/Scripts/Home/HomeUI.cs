@@ -21,7 +21,7 @@ public class HomeUI : MonoBehaviour
     void Awake(){
         // txtHighscore = GameObject.Find("txtHighscore").GetComponent<TextMeshProUGUI>();
         highscore = getHigh();
-        txtHighscore.text = "Score max \n" + highscore.ToString();
+        txtHighscore.text = "Best Score \n" + highscore.ToString();
     }
 
 

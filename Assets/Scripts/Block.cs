@@ -33,8 +33,10 @@ public class Block : MonoBehaviour
         if (pv <= 0)
         {
             Destroy(gameObject);
-            // add 1 ball to the player
-            player.addBullet();
+            // add 1 ball to the player with 50% chance
+            if (Random.Range(0, 2) == 1){
+                player.addBullet();
+            }
         }
     }
 

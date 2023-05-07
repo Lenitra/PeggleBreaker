@@ -8,7 +8,7 @@ public class Manager : MonoBehaviour
     public int level = 0;
     public GameObject block; // prefab du cube
     public GameObject[] powerups; // liste des powerups
-
+    public Player player; // script du joueur
     // UI
     public TextMeshProUGUI txtLevel; // text du level
     public TextMeshProUGUI txtHighscore; // text du highscore
@@ -33,7 +33,7 @@ public class Manager : MonoBehaviour
 
 
     public void startGame(){
-        txtHighscore.text = "Best score \n" + getHigh().ToString();
+        txtHighscore.text = "Best : " + getHigh().ToString();
         // destroy all the cubes
         foreach (Transform child in cubeList.transform)
         {
@@ -45,7 +45,7 @@ public class Manager : MonoBehaviour
             createRow();
         }
         level--;
-        
+        player.bulletCount = 5;
         setLevelText();
     }
 
@@ -132,6 +132,7 @@ public class Manager : MonoBehaviour
         cubeList = new GameObject("CubeList");
         txtLevel = GameObject.Find("LevelTXT").GetComponent<TextMeshProUGUI>();
         txtHighscore = GameObject.Find("HighscoreTXT").GetComponent<TextMeshProUGUI>();
+        player = GameObject.Find("Player").GetComponent<Player>();
         startGame();
     }
 
