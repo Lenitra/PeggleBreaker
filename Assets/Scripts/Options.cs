@@ -34,15 +34,21 @@ public class Options : MonoBehaviour
     }
 
     public void toggleVibration(){
-        if (PlayerPrefs.GetInt("vibration") == 1){
-            PlayerPrefs.SetInt("vibration", 0);
-        } else {
+
+        if (PlayerPrefs.GetInt("vibration") == 0){
+            vibrationToggle.GetComponent<Toggle>().isOn = false;
             PlayerPrefs.SetInt("vibration", 1);
             Vibration.Vibrate(100, 50);
+        } 
+        else {
+            PlayerPrefs.SetInt("vibration", 0);
+            vibrationToggle.GetComponent<Toggle>().isOn = true;
         }
+        
+        PlayerPrefs.Save();
     }
 
-    void Awake(){
+    void Start(){
         if (!PlayerPrefs.HasKey("vibration")){
             PlayerPrefs.SetInt("vibration", 1);
         }
@@ -54,4 +60,7 @@ public class Options : MonoBehaviour
     }
 
 
+    void Update(){
+        Debug.Log(PlayerPrefs.GetInt("vibration"));
+    }
 }
