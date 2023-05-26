@@ -60,7 +60,5 @@ public class Options : MonoBehaviour
     }
 
 
-    void Update(){
-        Debug.Log(PlayerPrefs.GetInt("vibration"));
-    }
+
 }

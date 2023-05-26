@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using static System.Math;
 using UnityEngine;
 using TMPro;
+// using UnityEngine.Mathf;
 
 public class Manager : MonoBehaviour
 {
@@ -98,6 +100,7 @@ public class Manager : MonoBehaviour
                 cube = Instantiate(block, new Vector3(i, y, 0), Quaternion.identity);
                 cube.transform.parent = cubeList.transform;
                 cube.GetComponent<Block>().pv = level*2;
+                cube.GetComponent<Block>().max_pv = level*2;
                 cube.GetComponent<Block>().setText();
                 cube.GetComponent<Block>().setColor(rdm_color);
                 // add cube to the list cubes
@@ -122,18 +125,23 @@ public class Manager : MonoBehaviour
 
     void Awake()
     {
-        block_colors.Add("#fffff");
-        block_colors.Add("#f9584b");
-        block_colors.Add("#ffd12b");
-        block_colors.Add("#b7dffd");
-        block_colors.Add("#80e8e0");
-        block_colors.Add("#3eb489");
+        block_colors.Add("#fffff"); // Blanc
+        block_colors.Add("#f9584b"); // Rouge
+        block_colors.Add("#ffd12b"); // Jaune
+        block_colors.Add("#0091FD"); // Bleu
+        block_colors.Add("#80e8e0"); // Turquoise
+        block_colors.Add("#3eb489"); // Vert pâle
+        block_colors.Add("#FF78C1"); // Rose
+        block_colors.Add("#FD49E4"); // Violet
+        block_colors.Add("#FF8200"); // Orange
+
         // create a parent for all the cubes
         cubeList = new GameObject("CubeList");
         txtLevel = GameObject.Find("LevelTXT").GetComponent<TextMeshProUGUI>();
         txtHighscore = GameObject.Find("HighscoreTXT").GetComponent<TextMeshProUGUI>();
         player = GameObject.Find("Player").GetComponent<Player>();
         startGame();
+
     }
 
 
