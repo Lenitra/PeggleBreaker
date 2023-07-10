@@ -50,13 +50,6 @@ public class Bullet : MonoBehaviour
                 return;
             }
 
-                Vector2 relativeVelocity = collision.relativeVelocity;
-                // Calculer la force de rebondissement en fonction de la vitesse relative et du coefficient de restitution
-                float bounceForce = relativeVelocity.magnitude * restitution;
-                // Calculer la direction de rebond basée sur la normale de la collision
-                Vector2 direction = collision.contacts[0].normal;
-                // Appliquer la force de rebondissement à l'objet dynamique
-                rb.AddForce(direction * bounceForce, ForceMode2D.Impulse);
         }
     }
 }
