@@ -73,8 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c27f010e396135008f6d64f3f496750, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -187,3 +186,6 @@ MonoBehaviour:
   bulletCount: 84
   speed: 0.1
   bullet: {fileID: 970819393568468629, guid: cee2eeed080203bc89fd3021623fa929, type: 3}
+  Manager: {fileID: 0}
+  uiBallCount: {fileID: 0}
+  shootParticle: {fileID: 0}

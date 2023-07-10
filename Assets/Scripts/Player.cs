@@ -141,7 +141,7 @@ public class Player : MonoBehaviour
 
 
         // shoot a bullet
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             shoot();
         }

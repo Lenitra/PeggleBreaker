@@ -119,6 +119,25 @@ public class Pow : MonoBehaviour
                 }
             }
 
+            else if (id == 5){
+                // bomb that destroy all blocks around
+                TakeDamage(1);
+                // get the block manager
+                GameObject cubeList = GameObject.Find("CubeList");
+                // meke the effect
+                StartCoroutine(Effect2());
+                // loop objects into the cube list 
+                foreach (Transform child in cubeList.transform)
+                {
+                    // if the child et a distance de 1
+                    if (Vector3.Distance(child.position, transform.position) <= 1 && child.gameObject.tag == "block"){
+                        // destroy the child
+                        child.GetComponent<Block>().TakeDamage(2);
+                    }
+                }
+                
+            }
+
 
         }
     }
